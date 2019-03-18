@@ -1,0 +1,86 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Internet Radio</title>
+
+<style>
+input#searchbox {
+    width: 85%;
+    display: block;
+    margin: 1% auto 0 auto;
+    padding: 1.5% 2.5%;
+    font-size: 1.5em;
+    font-size: 5vw;
+    border: solid 3px #505050;
+    border-radius: 35px;
+    outline: none;
+}
+
+body {    
+    background: rgb(61,204,189);
+    background: -moz-linear-gradient(top, rgba(61,204,189,1) 0%, rgba(32,178,170,1) 30%); 
+    background: -webkit-linear-gradient(top, rgba(61,204,189,1) 0%,rgba(32,178,170,1) 30%); 
+    background: linear-gradient(to bottom, rgba(61,204,189,1) 0%,rgba(32,178,170,1) 30%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3dccbd', endColorstr='#20b2aa',GradientType=0 ); 
+ 
+    color: #FFFFFF;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+div#title {
+    text-align: left;
+    margin-top: 2%;
+    margin-bottom: 10%;
+    font-size: .8em;
+    font-size: 4vw;
+    text-shadow: 0px 1px 0px #717171;
+    font-weight: bold;
+}
+
+
+div#currPlayingContainer {
+    text-align: center;
+    margin-top: 11%;
+    font-size: 1.2em;
+    font-size: 4vw;
+}
+
+span#currPlaying {
+    font-family: monospace;
+    font-weight: bold;
+
+    padding: 0px .4%;    
+}
+</style>
+
+<script type='text/javascript'>
+function submitfunc() {
+    window.location.href = document.getElementById('searchbox').value;
+    return false;
+}
+
+
+var currentlyPlaying = window.location.href.split('/');
+currentlyPlaying = currentlyPlaying[currentlyPlaying.length - 1];
+if (currentlyPlaying === "STARTING_LOCATION_STRING") {
+    currentlyPlaying = "None";
+}
+</script>
+</head>
+
+
+<body>
+<div id='title'>Internet Radio</div>
+<form action='javascript:submitfunc();'>
+    <input type='text' id='searchbox' autocomplete='off'>
+</form>
+<div id='currPlayingContainer'>
+    <span id='currPlaying'>
+        <script type='text/javascript'>
+            document.write(decodeURI(currentlyPlaying));
+        </script>
+    </span>
+</div>
+</body>
+</html>
